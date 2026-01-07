@@ -1,6 +1,6 @@
 # Gemini Fullstack LangGraph Quickstart
 
-This project demonstrates a fullstack application using a React frontend and a LangGraph-powered backend agent. The agent is designed to perform comprehensive research on a user's query by dynamically generating search terms, querying the web using Google Search, reflecting on the results to identify knowledge gaps, and iteratively refining its search until it can provide a well-supported answer with citations. This application serves as an example of building research-augmented conversational AI using LangGraph and Google's Gemini models.
+LangGraph Full Stack is an advanced AI-powered application built to demonstrate how intelligent research agents can enhance user interaction with complex information sources. By leveraging modern natural language processing and state-of-the-art AI models, the system enables users to ask questions and receive well-reasoned, accurate, and citation-backed responses. The application performs automated web research, contextual analysis, and iterative refinement of information, ensuring reliable knowledge retrieval and a seamless conversational experience. This project highlights the practical use of LangGraph and Google Gemini models to build scalable, research-driven conversational AI systems.
 
 <img src="./app.png" title="Gemini Fullstack LangGraph" alt="Gemini Fullstack LangGraph" width="90%">
 
@@ -16,7 +16,6 @@ This project demonstrates a fullstack application using a React frontend and a L
 
 ## Project Structure
 
-The project is divided into two main directories:
 
 -   `frontend/`: Contains the React application built with Vite.
 -   `backend/`: Contains the LangGraph/FastAPI application, including the research agent logic.
@@ -84,29 +83,6 @@ cd backend
 python examples/cli_research.py "What are the latest trends in renewable energy?"
 ```
 
-
-## Deployment
-
-In production, the backend server serves the optimized static frontend build. LangGraph requires a Redis instance and a Postgres database. Redis is used as a pub-sub broker to enable streaming real time output from background runs. Postgres is used to store assistants, threads, runs, persist thread state and long term memory, and to manage the state of the background task queue with 'exactly once' semantics. For more details on how to deploy the backend server, take a look at the [LangGraph Documentation](https://langchain-ai.github.io/langgraph/concepts/deployment_options/). Below is an example of how to build a Docker image that includes the optimized frontend build and the backend server and run it via `docker-compose`.
-
-_Note: For the docker-compose.yml example you need a LangSmith API key, you can get one from [LangSmith](https://smith.langchain.com/settings)._
-
-_Note: If you are not running the docker-compose.yml example or exposing the backend server to the public internet, you should update the `apiUrl` in the `frontend/src/App.tsx` file to your host. Currently the `apiUrl` is set to `http://localhost:8123` for docker-compose or `http://localhost:2024` for development._
-
-**1. Build the Docker Image:**
-
-   Run the following command from the **project root directory**:
-   ```bash
-   docker build -t gemini-fullstack-langgraph -f Dockerfile .
-   ```
-**2. Run the Production Server:**
-
-   ```bash
-   GEMINI_API_KEY=<your_gemini_api_key> LANGSMITH_API_KEY=<your_langsmith_api_key> docker-compose up
-   ```
-
-Open your browser and navigate to `http://localhost:8123/app/` to see the application. The API will be available at `http://localhost:8123`.
-
 ## Technologies Used
 
 - [React](https://reactjs.org/) (with [Vite](https://vitejs.dev/)) - For the frontend user interface.
@@ -115,6 +91,4 @@ Open your browser and navigate to `http://localhost:8123/app/` to see the applic
 - [LangGraph](https://github.com/langchain-ai/langgraph) - For building the backend research agent.
 - [Google Gemini](https://ai.google.dev/models/gemini) - LLM for query generation, reflection, and answer synthesis.
 
-## License
 
-This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details. 
