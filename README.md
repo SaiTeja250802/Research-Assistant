@@ -2,7 +2,6 @@
 
 LangGraph Full Stack is an advanced AI-powered application built to demonstrate how intelligent research agents can enhance user interaction with complex information sources. By leveraging modern natural language processing and state-of-the-art AI models, the system enables users to ask questions and receive well-reasoned, accurate, and citation-backed responses. The application performs automated web research, contextual analysis, and iterative refinement of information, ensuring reliable knowledge retrieval and a seamless conversational experience. This project highlights the practical use of LangGraph and Google Gemini models to build scalable, research-driven conversational AI systems.
 
-<img src="./app.png" title="Gemini Fullstack LangGraph" alt="Gemini Fullstack LangGraph" width="90%">
 
 ## Features
 
